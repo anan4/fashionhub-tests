@@ -116,23 +116,30 @@ fashionhub-tests/
     messages.json           # UI messages (welcome text, error messages, etc.)
 
     users.json              # Test users (valid / invalid credentials)
-    
+
 The tests use the Page Object pattern to keep selectors and page-specific logic in one place, and external JSON files to avoid hard-coded UI strings and credentials in the code. This makes the suite easier to maintain and extend.
 
 ## 7. Build and run summary
 
 1. Install dependencies and Playwright browsers:
-npm install
-npx playwright install
+
+  npm install
+  
+  npx playwright install
 
 2. Run the application (Docker):
-docker pull pocketaces2/fashionhub-demo-app
-docker run -p 4000:4000 pocketaces2/fashionhub-demo-app:latest
+
+  docker pull pocketaces2/fashionhub-demo-app
+
+  docker run -p 4000:4000 pocketaces2/fashionhub-demo-app:latest
 
 3. Run tests:
-npm run test:local      # against local Docker container
-npm run test:prod       # against public production URL
-npm run test:staging    # against staging URL
+
+  npm run test:local      # against local Docker container
+
+  npm run test:prod       # against public production URL
+
+  npm run test:staging    # against staging URL
 
 ## 8. Multi-browser execution
 
