@@ -1,0 +1,30 @@
+{
+  "name": "fashionhub-tests",
+  "version": "1.0.0",
+  "description": "",
+  "main": "playwright.config.js",
+  "directories": {
+    "test": "tests"
+  },
+  "dependencies": {
+    "playwright": "^1.58.2",
+    "playwright-core": "^1.58.2",
+    "undici-types": "^7.16.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.58.2",
+    "cross-env": "^10.1.0",
+    "dotenv": "^17.3.1"
+  },
+  "scripts": {
+    "test": "playwright test",
+    "test:prod": "cross-env PROD_BASE_URL=https://pocketaces2.github.io/fashionhub/ playwright test --project=prod-chromium --project=prod-firefox --project=prod-webkit",
+    "test:staging": "cross-env STAGING_BASE_URL=https://staging-env/fashionhub/ playwright test --project=staging-chromium",
+    "test:local": "cross-env LOCAL_BASE_URL=http://localhost:4000/fashionhub/ playwright test --project=local-chromium",
+    "test:staging-as-prod": "cross-env STAGING_BASE_URL=https://pocketaces2.github.io/fashionhub/ playwright test --project=staging-chromium"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs"
+}

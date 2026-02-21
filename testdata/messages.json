@@ -1,0 +1,6 @@
+{
+  "login": {
+    "welcomeText": "Welcome",
+    "errorText": "Invalid username or password."
+  }
+}
