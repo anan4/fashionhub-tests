@@ -134,7 +134,7 @@ The Playwright configuration in the package.json file defines multiple **project
 By default, the `test:prod` script runs the production tests in **all three browsers**:
 
 npm run test:prod
-# => runs prod-chromium, prod-firefox and prod-webkit
+ => runs prod-chromium, prod-firefox and prod-webkit
 
 This configuration can be modified as desired.
 
@@ -149,7 +149,7 @@ to:
 reporter: [
     ['html', { open: 'always' }],
 
-## Potential future improvements:
+## 10. Potential future improvements:
 
 - Add more test coverage (filters, cart, checkout flows).
 - Integrate with CI (e.g. GitHub Actions) to run npm run test:prod on each push and publish the Playwright HTML report as an artifact.

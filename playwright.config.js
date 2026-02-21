@@ -18,7 +18,7 @@ module.exports = defineConfig({
   workers: process.env.CI ? 1 : undefined,
   reporter: [
     ['html', { open: 'on-failure' }],
-    ['json', { outputFile: 'test-results.json' }]
+    ['json', { outputFile: 'test-results/test-results.json' }]
   ],
   use: {
     baseURL: process.env.BASE_URL || PROD_BASE_URL || 'https://pocketaces2.github.io/fashionhub/',
