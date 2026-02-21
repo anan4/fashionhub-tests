@@ -42,9 +42,11 @@ Environment-specific base URLs are controlled via environment variables with the
 
 Example .env file (optional, for local development):
 
-PROD_BASE_URL=https://pocketaces2.github.io/fashionhub/
-STAGING_BASE_URL=https://staging-env/fashionhub/
-LOCAL_BASE_URL=http://localhost:4000/fashionhub/
+  PROD_BASE_URL=https://pocketaces2.github.io/fashionhub/
+
+  STAGING_BASE_URL=https://staging-env/fashionhub/
+
+  LOCAL_BASE_URL=http://localhost:4000/fashionhub/
 
 The playwright.config.js uses these variables to configure the baseURL for each Playwright project (prod-*, staging-*, local-*).
 
