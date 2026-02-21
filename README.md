@@ -57,6 +57,7 @@ Start the Docker container (see section 3).
 In a new terminal, run:
 
 npm run test:local
+
 This executes the tests using the local-chromium Playwright project, pointing to http://localhost:4000/fashionhub/.
 
 #### Note about local Docker vs public instance
@@ -74,6 +75,7 @@ In the tests, this behaviour is intentionally left visible to highlight that the
 ### 5.2. Run tests against production
 
 npm run test:prod
+
 This runs the tests against the public Fashionhub instance (GitHub Pages).
 
 ### 5.3. Run tests against staging
@@ -85,27 +87,36 @@ npm run test:staging
 The following script (example) runs the staging project but forces its baseURL to use the production URL to demonstrate CLI precedence over .env and default config:
 
 npm run test:staging-as-prod
+
 See package.json for the exact command definition.
 
 ## 6. Project structure
 
 fashionhub-tests/
   playwright.config.js      # Playwright configuration (projects, reporters, base URLs)
+
   package.json              # npm scripts and dependencies
+
   .env                      # (optional) environment variables for local development
 
   tests/
+
     login.spec.js           # Login-related test cases
-    ...                     # Other feature tests
 
   pages/
+
     LoginPage.js            # Page Object for the login page
-    ProductsPage.js         # (optional) Page Object for product listing
+
+    ProductsPage.js         # (optional) Page Object for product 
+    
     CartPage.js             # (optional) Page Object for cart/checkout
 
   testdata/
+
     messages.json           # UI messages (welcome text, error messages, etc.)
+
     users.json              # Test users (valid / invalid credentials)
+    
 The tests use the Page Object pattern to keep selectors and page-specific logic in one place, and external JSON files to avoid hard-coded UI strings and credentials in the code. This makes the suite easier to maintain and extend.
 
 ## 7. Build and run summary
