@@ -90,7 +90,7 @@ test.describe('FashionHub Login', () => {
       await loginPage.login('', '');
     });
 
-    // Step 3: Verify that the validation error is displayed for both fields
+    // Step 3: Verify that the validation error is displayed for empty required fields
     await test.step('Verify validation error for empty credentials', async () => {
       await loginPage.verifyValidationError();
     });
