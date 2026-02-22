@@ -35,18 +35,64 @@ test.describe('FashionHub Login', () => {
   test('Validate error message when using invalid credentials', async ({ page }) => {
     const loginPage = new LoginPage(page);
 
-    await loginPage.goto();
-    await loginPage.login(invalidUsername, invalidPassword);
-    await loginPage.verifyErrorMessage();
-    await loginPage.verifyErrorMessageText();
+    // Step 1: Navigate to the login page, validates that the URL contains "login"
+    await test.step('Navigate to login page', async () => {
+      await loginPage.goto();
+      await expect(page).toHaveURL(/login/i);
+    });
+
+    // Step 2: Perform login with valid credentials using values in .env file
+    await test.step('Login with valid credentials', async () => {
+      await loginPage.login(invalidUsername, invalidPassword);
+    });
+
+    // Step 3: Verify that the error message is displayed with the correct text
+    await test.step('Verify error message is displayed', async () => {
+      await loginPage.verifyErrorMessage();
+      await loginPage.verifyErrorMessageText();
+    });
+  });
+
+  // Invalid login with invalid password test pass when checking for error message
+  test('Validate error message when using invalid password', async ({ page }) => {
+    const loginPage = new LoginPage(page);
+
+    // Step 1: Navigate to the login page, validates that the URL contains "login"
+    await test.step('Navigate to login page', async () => {
+      await loginPage.goto();
+      await expect(page).toHaveURL(/login/i);
+    });
+
+    // Step 2: Perform login with valid username and invalid password using values in .env file
+    await test.step('Login with valid username and invalid password', async () => {
+      await loginPage.login(validUsername, invalidPassword);
+    });
+
+    // Step 3: Verify that the error message is displayed with the correct text
+    await test.step('Verify error message is displayed', async () => {
+      await loginPage.verifyErrorMessage();
+      await loginPage.verifyErrorMessageText();
+    });
   });
 
   // Empty credentials test pass when checking for HTML validation error (element invalid)
   test('Empty credentials show validation error', async ({ page }) => {
     const loginPage = new LoginPage(page);
 
-    await loginPage.goto();
-    await loginPage.login('', '');
-    await loginPage.verifyValidationError();
+    // Step 1: Navigate to the login page, validates that the URL contains "login"
+    await test.step('Navigate to login page', async () => {
+      await loginPage.goto();
+      await expect(page).toHaveURL(/login/i);
+    });
+
+    // Step 2: Perform login with empty credentials
+    await test.step('Login with empty credentials', async () => {
+      await loginPage.login('', '');
+    });
+
+    // Step 3: Verify that the validation error is displayed for both fields
+    await test.step('Verify validation error for empty credentials', async () => {
+      await loginPage.verifyValidationError();
+    });
   });
 });

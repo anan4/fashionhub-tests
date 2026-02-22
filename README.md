@@ -52,7 +52,15 @@ The playwright.config.js uses these variables to configure the baseURL for each 
 
 ## 5. How to run the tests
 
-### 5.1. Run tests against local Docker container
+All the tests are expected to pass according to the expected results.
+
+### 5.1. Run tests against production
+
+npm run test:prod
+
+This runs the tests against the public Fashionhub instance (https://pocketaces2.github.io/fashionhub/).
+
+### 5.2. Run tests against local Docker container
 
 Start the Docker container (see section 3).
 
@@ -71,18 +79,15 @@ However, when running against the Dockerized local instance (pocketaces2/fashion
 
 "Welcome, testUser"
 
-This difference in UI text causes the “valid login” assertion to fail if the expected value is hard-coded for one environment only.
+This difference in UI text causes the “valid login” assertion to fail in local as the expected value seems to be hard-coded for the local environment only.
 In the tests, this behaviour is intentionally left visible to highlight that the suite is actually executed against the local Docker container and that UI expectations may differ between environments.
 
-### 5.2. Run tests against production
-
-npm run test:prod
-
-This runs the tests against the public Fashionhub instance (GitHub Pages).
 
 ### 5.3. Run tests against staging
 
 npm run test:staging
+
+This will fail if staging environment is not available.
 
 ### 5.4. Example of CLI overriding config
 
@@ -158,7 +163,17 @@ npm run test:prod
 
 This configuration can be modified as desired.
 
-## 9. Results report
+## 9. Test coverage
+
+The current Playwright project version includes the following e2e tests:
+
+1. Valid login with valid credentials (demouser, fashion123)
+
+2. Invalid login with existing user (demouser) and invalid password
+
+3. Invalid login with empty user / password fields
+
+## 10. Results report
 Results report is always stored on file: 'playwright-report/index.html'. This report is only automatically launched when at least one test fails. If you want web report to be always launched automatically at the end of the test execution, change the following parameter in 'playwright.config.js' file:
 
 reporter: [
@@ -169,7 +184,7 @@ to:
 reporter: [
     ['html', { open: 'always' }],
 
-## 10. Potential future improvements:
+## 11. Potential future improvements:
 
 - Add more test coverage (filters, cart, checkout flows).
 - Integrate with CI (e.g. GitHub Actions) to run npm run test:prod on each push and publish the Playwright HTML report as an artifact.
