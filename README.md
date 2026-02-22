@@ -114,10 +114,6 @@ fashionhub-tests/
 
     LoginPage.js            # Page Object for the login page
 
-    ProductsPage.js         # (optional) Page Object for product 
-    
-    CartPage.js             # (optional) Page Object for cart/checkout
-
   testdata/
 
     messages.json           # UI messages (welcome text, error messages, etc.)
@@ -161,7 +157,7 @@ By default, the `test:prod` script runs the production tests in **all three brow
 npm run test:prod
  => runs prod-chromium, prod-firefox and prod-webkit
 
-This configuration can be modified as desired.
+This configuration can be modified as desired. If you want, for exemple, execute the tests on the local environment against Firefox browser, just create "local-firefox" project in the package.json file and then run it.
 
 ## 9. Test coverage
 
