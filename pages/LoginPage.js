@@ -2,6 +2,7 @@ const { expect } = require('@playwright/test');
 require('dotenv').config();
 
 const messages = require('../testdata/messages');
+const users = require('../testdata/users.json');
 
 // Page Object Model for the Login Page
 class LoginPage {
@@ -27,6 +28,16 @@ class LoginPage {
     await this.loginButton.click();
   }
 
+  // Method to perform login action by inserting username and password and clicking the login button
+  async validLogin() {
+    const validUsername = users.valid.username || 'demouser';
+    const validPassword = users.valid.password || 'demo123';
+    await this.usernameInput.fill(validUsername);
+    await this.passwordInput.fill(validPassword);
+    await this.loginButton.click();
+  }
+
+ 
   // Method to verify that the welcome message is displayed with the correct username
   async verifyWelcome(username) {
     await expect(this.welcomeMessage).toBeVisible();
@@ -52,4 +63,4 @@ class LoginPage {
   }
 }
 
-module.exports = LoginPage;
+module.exports = LoginPage; 

@@ -1,6 +1,7 @@
 {
   "login": {
     "welcomeText": "Welcome",
-    "errorText": "Invalid username or password."
+    "errorText": "Invalid username or password.",
+    "pageTitle": "Login to FashionHub"
   }
 }

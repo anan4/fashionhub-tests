@@ -18,6 +18,7 @@
   },
   "scripts": {
     "test": "playwright test",
+    "test:prod-chromium": "cross-env PROD_BASE_URL=https://pocketaces2.github.io/fashionhub/ playwright test --project=prod-chromium",
     "test:prod": "cross-env PROD_BASE_URL=https://pocketaces2.github.io/fashionhub/ playwright test --project=prod-chromium --project=prod-firefox --project=prod-webkit",
     "test:staging": "cross-env STAGING_BASE_URL=https://staging-env/fashionhub/ playwright test --project=staging-chromium",
     "test:local": "cross-env LOCAL_BASE_URL=http://localhost:4000/fashionhub/ playwright test --project=local-chromium",
