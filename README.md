@@ -165,9 +165,13 @@ The current Playwright project version includes the following e2e tests:
 
 1. Valid login with valid credentials (demouser, fashion123)
 
-2. Invalid login with existing user (demouser) and invalid password
+2. Invalid login with invalid credentials
 
-3. Invalid login with empty user / password fields
+3. Invalid login with existing user (demouser) and invalid password
+
+4. Invalid login with empty user / password fields
+
+5. Logout
 
 ## 10. Results report
 Results report is always stored on file: 'playwright-report/index.html'. This report is only automatically launched when at least one test fails. If you want web report to be always launched automatically at the end of the test execution, change the following parameter in 'playwright.config.js' file:
